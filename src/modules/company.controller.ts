@@ -14,15 +14,15 @@ export class CompaniesController {
 
     @Get()
     getCompanies(@Req() req, @Res() res, err) {
-        // let pusher = new Pusher('e6c6d225b2ca71968dcc', {
-        //     cluster: 'eu',
-        //     encrypted: true
-        // });
+        let pusher = new Pusher('e6c6d225b2ca71968dcc', {
+            cluster: 'eu',
+            encrypted: true
+        });
 
-        // const channel = pusher.subscribe('company');
-        // channel.bind('company_data', data => {
-        //     this.companies.push(data);
-        // });
+        const channel = pusher.subscribe('company');
+        channel.bind('company_data', data => {
+            this.companies.push(data);
+        });
 
         res.render('index',{companies: this.companies});
     }
