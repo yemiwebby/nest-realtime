@@ -1,4 +1,4 @@
-## Pusher Stock Demo with JS
+## Realtime with nest.js
 
 - Nest.js
 
